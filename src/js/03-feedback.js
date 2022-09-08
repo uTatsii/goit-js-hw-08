@@ -12,7 +12,7 @@ const savedData = {
 
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(onFormInput, 500));
-window.addEventListener('load', formUpdate);
+formUpdate();
 
 function onFormSubmit(e) {
   e.preventDefault();
