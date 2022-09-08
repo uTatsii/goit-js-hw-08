@@ -8,16 +8,16 @@ const player = new VimeoPlayer(iframe);
 const savedTimePosition = localStorage.getItem(PLAYBACK_POSITION);
 const throttle = require('lodash.throttle');
 
-function onVimeoPlayerUpdate({ seconds }) {
-   localStorage.setItem(PLAYBACK_POSITION, seconds);
-}
-
 if (!player) {
   return;
 } else {
   savedTimePosition ? player.setCurrentTime(savedTimePosition) : null;
 
   player.on('timeupdate', throttle(onVimeoPlayerUpdate, 1000));
+}
+
+function onVimeoPlayerUpdate({ seconds }) {
+   localStorage.setItem(PLAYBACK_POSITION, seconds);
 }
 
 
