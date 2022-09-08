@@ -33,7 +33,8 @@ function onFormInput() {
 }
 
 function formUpdate() {
-  const localFormData = JSON.parse(localStorage.getItem(SAVED_FORM_DATA_KEY));
+    const localFormData = JSON.parse(localStorage.getItem(SAVED_FORM_DATA_KEY));
+    
     if (localFormData) {
         input.value = localFormData.email;
         textarea.value = localFormData.message;
