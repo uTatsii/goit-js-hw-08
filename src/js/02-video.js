@@ -1,7 +1,7 @@
 import VimeoPlayer from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
-const PLAYBACK_POSITION = "videoplayer-current-time";
+const PLAYBACK_POSITION = 'videoplayer-current-time';
 
 const iframe = document.querySelector('iframe');
 const player = new VimeoPlayer(iframe);
@@ -10,14 +10,12 @@ const throttle = require('lodash.throttle');
 
 if (!player) {
   return;
-} else {
-  savedTimePosition ? player.setCurrentTime(savedTimePosition) : null;
-
-  player.on('timeupdate', throttle(onVimeoPlayerUpdate, 1000));
 }
+
+savedTimePosition ? player.setCurrentTime(savedTimePosition) : null;
+
+player.on('timeupdate', throttle(onVimeoPlayerUpdate, 1000));
 
 function onVimeoPlayerUpdate({ seconds }) {
-   localStorage.setItem(PLAYBACK_POSITION, seconds);
+  localStorage.setItem(PLAYBACK_POSITION, seconds);
 }
-
-
