@@ -8,7 +8,7 @@
     "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
   },
   "repository": {
-    "type": "git",
+    "type": "git"
   },
   "keywords": [],
   "author": "Yuliia Tatsii <utatsiy@gmail.com>",
